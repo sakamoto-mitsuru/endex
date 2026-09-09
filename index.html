@@ -3,7 +3,7 @@
 <title>旅立ちの装い ｜ itowa</title>
 <meta name="description" content="お手持ちの一枚から、ご葬儀当日の全体像を、その場で。">
 <link rel="manifest" href="./manifest.webmanifest">
-<meta name="theme-color" content="#f5f0e8">
+<meta name="theme-color" content="#ffffff">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -13,8 +13,11 @@
 <style>
   :root{
     --portrait-ink:#3a3228; --portrait-muted:#888888;
-    --portrait-line:#eeeeee; --portrait-line-strong:#c4b5a3;
-    --portrait-card:#ffffff; --portrait-panel:#f5f0e8;
+    --portrait-line:#e8e8ea; --portrait-line-strong:#c4b5a3;
+    --portrait-card:#ffffff; --portrait-panel:#ffffff;
+    --portrait-tint:#f7f7f8;
+    --portrait-shadow:0 10px 30px rgba(38,35,31,.12), 0 2px 6px rgba(38,35,31,.06);
+    --portrait-shadow-lg:0 18px 44px rgba(38,35,31,.16), 0 3px 10px rgba(38,35,31,.08);
     --portrait-primary:#555555; --portrait-primary-dark:#222222;
     --portrait-radius-card:0.75rem; --portrait-radius-pill:9999px;
   }
@@ -54,8 +57,7 @@
     place-items:center;opacity:0;transition:opacity 1.1s ease}
   .shot--on{opacity:1}
   .shot img{display:block;width:100%;height:100%;object-fit:contain;
-    border-radius:var(--portrait-radius-card);
-    box-shadow:0 10px 34px rgba(58,50,40,.14)}
+    border-radius:var(--portrait-radius-card);box-shadow:var(--portrait-shadow-lg)}
   @media (prefers-reduced-motion:reduce){.shot{transition:none}}
 
   /* 工程の名前とドット */
@@ -107,17 +109,34 @@
   .install button{min-height:44px;border:1px solid var(--portrait-line-strong);
     border-radius:var(--portrait-radius-pill);background:var(--portrait-card);
     color:var(--portrait-ink);font:inherit;font-size:16px;padding:0 18px;cursor:pointer}
+
+  /* ── 新技術バッジ ── */
+  .frame{position:relative}
+  .badge{position:absolute;top:12px;right:12px;z-index:2;
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    font-size:14px;letter-spacing:.12em;line-height:1;white-space:nowrap;
+    color:var(--portrait-ink);
+    border:1px solid var(--portrait-line-strong);border-radius:var(--portrait-radius-pill);
+    background:rgba(255,255,255,.92);padding:8px 16px;box-shadow:var(--portrait-shadow)}
+  .badge b{font-weight:700;letter-spacing:.16em}
+  .badge i{display:block;width:5px;height:5px;flex:0 0 auto;transform:rotate(45deg);
+    background:var(--portrait-line-strong)}
+  .badge span{color:var(--portrait-muted);letter-spacing:.08em}
+  @media (max-width:560px){
+    .badge{top:8px;right:8px;font-size:13px;padding:7px 13px;gap:6px}}
 </style>
 
 <div class="top">
   <div class="head">
-    <div class="brand">ITOWA</div>
     <h1>遺影・装い・祭壇を、<br><span class="em">1枚の完成イメージ</span>に</h1>
     <p class="sub">お手持ちの一枚から、ご葬儀当日の全体像を、その場で。</p>
   </div>
 
   <div class="stage">
-    <div class="frame" id="frame"></div>
+    <div class="frame" id="frame">
+      <span class="badge"><i></i><b>新技術</b><span>特許出願中</span></span>
+    </div>
     <div class="track" id="track"></div>
   </div>
 

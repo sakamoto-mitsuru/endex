@@ -2,7 +2,7 @@
    会場の電波が不安定でも動くように、一度開いた画面は端末に残す。
    モックを差し替えたら CACHE の版を上げること。上げないと古い画面が出続ける。 */
 
-const CACHE = 'ceremony-preview-v3';
+const CACHE = 'ceremony-preview-v5';
 
 /* 入れた瞬間に確保しておくもの。軽いものだけ。
    demo.html / pair.html は 10MB を超えるため、ここには入れず、

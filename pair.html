@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>装いとお棺を合わせる ｜ セレモニープレビュー</title>
 <link rel="manifest" href="./manifest.webmanifest">
-<meta name="theme-color" content="#f5f0e8">
+<meta name="theme-color" content="#ffffff">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -22,8 +22,11 @@ if('serviceWorker' in navigator){
 <style>
   :root{
     --portrait-ink:#3a3228; --portrait-muted:#888888;
-    --portrait-line:#eeeeee; --portrait-line-strong:#c4b5a3;
-    --portrait-card:#ffffff; --portrait-panel:#f5f0e8;
+    --portrait-line:#e8e8ea; --portrait-line-strong:#c4b5a3;
+    --portrait-card:#ffffff; --portrait-panel:#ffffff;
+    --portrait-tint:#f7f7f8;
+    --portrait-shadow:0 10px 30px rgba(38,35,31,.12), 0 2px 6px rgba(38,35,31,.06);
+    --portrait-shadow-lg:0 18px 44px rgba(38,35,31,.16), 0 3px 10px rgba(38,35,31,.08);
     --portrait-primary:#555555; --portrait-primary-dark:#222222;
     --portrait-primary-soft:#eeeeee;
     --portrait-radius-card:0.75rem; --portrait-radius-pill:9999px;
@@ -40,14 +43,14 @@ if('serviceWorker' in navigator){
 
   .portrait-panel{display:grid;gap:14px;border:1px solid var(--portrait-line);
     border-radius:var(--portrait-radius-card);background:var(--portrait-card);
-    padding:16px;box-shadow:0 1px 2px rgba(58,50,40,.08)}
+    padding:16px;box-shadow:var(--portrait-shadow)}
   .portrait-panel__topline{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
   .portrait-panel__label{font-size:13px;font-weight:600;line-height:1.5}
   .portrait-panel__note{color:var(--portrait-muted);font-size:12px;line-height:1.7}
 
   .stage{position:relative;width:100%;overflow:hidden;
     border:1px solid var(--portrait-line);border-radius:var(--portrait-radius-card);
-    background:var(--portrait-panel)}
+    background:var(--portrait-tint)}
   .stage img.plate{display:block;width:100%}
   .stage .piece{position:absolute}
   .stage .piece img{display:block;width:100%}
@@ -57,12 +60,12 @@ if('serviceWorker' in navigator){
   .portrait-options{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
   .portrait-option{position:relative;display:grid;gap:6px;border:1px solid var(--portrait-line);
     border-radius:var(--portrait-radius-card);background:var(--portrait-card);
-    color:var(--portrait-ink);cursor:pointer;padding:6px;text-align:center;font:inherit}
+    color:var(--portrait-ink);cursor:pointer;padding:6px;text-align:center;font:inherit;box-shadow:0 4px 14px rgba(38,35,31,.10)}
   .portrait-option:hover{border-color:var(--portrait-line-strong)}
-  .portrait-option--selected{border-color:var(--portrait-primary);
+  .portrait-option--selected{box-shadow:0 8px 22px rgba(38,35,31,.16);border-color:var(--portrait-primary);
     background:var(--portrait-primary-soft)}
   .portrait-option:focus-visible{outline:2px solid var(--portrait-line-strong);outline-offset:2px}
-  .portrait-option img{display:block;width:100%;background:var(--portrait-panel);
+  .portrait-option img{display:block;width:100%;background:var(--portrait-tint);
     border-radius:calc(var(--portrait-radius-card) - 5px)}
   .portrait-option--body img{aspect-ratio:3/4;object-fit:cover;object-position:center 20%}
   .portrait-option--coffin img{aspect-ratio:3/2;object-fit:contain}
@@ -97,8 +100,8 @@ if('serviceWorker' in navigator){
   .g{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
   @media(max-width:640px){.g{grid-template-columns:repeat(2,1fr)}}
   .g .cell{position:relative;overflow:hidden;border:1px solid var(--portrait-line);
-    border-radius:var(--portrait-radius-card);background:var(--portrait-panel);
-    cursor:pointer;padding:0}
+    border-radius:var(--portrait-radius-card);background:var(--portrait-tint);
+    cursor:pointer;padding:0;box-shadow:var(--portrait-shadow)}
   .g .cell img.plate{display:block;width:100%}
   .g .cell .piece{position:absolute}
   .g .cell .piece img{display:block;width:100%}
