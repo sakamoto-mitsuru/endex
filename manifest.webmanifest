@@ -1,0 +1,33 @@
+{
+  "name": "セレモニープレビュー",
+  "short_name": "セレモニー",
+  "description": "お写真から遺影を仕上げ、旅立ちの装い・お棺・祭壇まで、その場でご覧いただけます。",
+  "lang": "ja",
+  "dir": "ltr",
+  "start_url": "./index.html",
+  "scope": "./",
+  "id": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f5f0e8",
+  "theme_color": "#f5f0e8",
+  "icons": [
+    { "src": "./icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "./icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "./icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    {
+      "name": "画面の流れを見る",
+      "short_name": "画面の流れ",
+      "url": "./flow.html",
+      "icons": [{ "src": "./icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "装いとお棺を合わせる",
+      "short_name": "装いとお棺",
+      "url": "./pair.html",
+      "icons": [{ "src": "./icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}
