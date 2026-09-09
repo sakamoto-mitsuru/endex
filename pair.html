@@ -73,14 +73,23 @@ if('serviceWorker' in navigator){
 
   .portrait-actions{display:grid;gap:8px;grid-template-columns:1fr 1fr}
   @media(max-width:560px){.portrait-actions{grid-template-columns:1fr}}
-  .portrait-button{min-height:44px;width:100%;border:0;
-    border-radius:var(--portrait-radius-pill);background:var(--portrait-primary);
-    color:#fff;cursor:pointer;font:inherit;font-size:14px}
-  .portrait-button:hover{background:var(--portrait-primary-dark)}
+  .portrait-button{min-height:58px;width:100%;border:0;
+    border-radius:var(--portrait-radius-pill);
+    background:linear-gradient(135deg,#2c66c4 0%,#1e50a2 100%);
+    box-shadow:0 6px 18px rgba(30,80,162,.28);
+    text-shadow:0 1px 2px rgba(16,42,86,.36);
+    color:#fff;cursor:pointer;font:inherit;font-size:19px;font-weight:700;
+    letter-spacing:.06em;transition:transform .12s ease,box-shadow .2s ease;
+    -webkit-tap-highlight-color:transparent}
+  .portrait-button:active{transform:scale(.985)}
+    .portrait-button:hover{
+    background:linear-gradient(135deg,#3573d4 0%,#245ab4 100%);
+    box-shadow:0 8px 22px rgba(30,80,162,.34)}
   .portrait-button--secondary{border:1px solid var(--portrait-line-strong);
-    background:var(--portrait-card);color:var(--portrait-ink)}
-  .portrait-button--secondary:hover{border-color:var(--portrait-primary);
-    background:var(--portrait-panel)}
+    background:var(--portrait-card);color:var(--portrait-ink);
+    box-shadow:none;text-shadow:none;font-weight:600;letter-spacing:.02em}
+  .portrait-button--secondary:hover{border-color:var(--portrait-ink);
+    background:var(--portrait-panel);box-shadow:none}
   .portrait-button:focus-visible{outline:2px solid var(--portrait-line-strong);outline-offset:2px}
 
   .grid16{margin-top:14px;display:none}
@@ -249,6 +258,17 @@ $('#dl').onclick=async()=>{
   a.download=`男性_装い${b.name}_お棺${c.name}.png`;
   a.href=cv.toDataURL('image/png'); a.click();
 };
+
+/* 置きっぱなしにされたら最初の画面へ戻す */
+const IDLE_ANY=180;
+let idleTimer=null;
+function armIdle(){clearTimeout(idleTimer);
+  idleTimer=setTimeout(()=>{location.href='./index.html';},IDLE_ANY*1000);}
+['pointerdown','keydown','wheel','touchstart'].forEach(ev=>
+  addEventListener(ev,armIdle,{passive:true}));
+document.addEventListener('visibilitychange',()=>{
+  if(document.hidden) clearTimeout(idleTimer); else armIdle();});
+armIdle();
 
 render();
 </script>
