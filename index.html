@@ -113,18 +113,21 @@
   /* ── 新技術バッジ ── */
   .frame{position:relative}
   .badge{position:absolute;top:12px;right:12px;z-index:2;
-    display:inline-flex;align-items:center;gap:8px;
+    display:grid;gap:3px;justify-items:center;text-align:center;
     font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
-    font-size:14px;letter-spacing:.12em;line-height:1;white-space:nowrap;
-    color:var(--portrait-ink);
-    border:1px solid var(--portrait-line-strong);border-radius:var(--portrait-radius-pill);
-    background:rgba(255,255,255,.92);padding:8px 16px;box-shadow:var(--portrait-shadow)}
-  .badge b{font-weight:700;letter-spacing:.16em}
-  .badge i{display:block;width:5px;height:5px;flex:0 0 auto;transform:rotate(45deg);
-    background:var(--portrait-line-strong)}
-  .badge span{color:var(--portrait-muted);letter-spacing:.08em}
+    line-height:1.25;white-space:nowrap;color:#fff;
+    border-radius:calc(var(--portrait-radius-card) - 2px);
+    background:linear-gradient(135deg,#c8302f 0%,#a51f21 100%);
+    padding:11px 18px;
+    box-shadow:0 6px 18px rgba(140,26,28,.34), 0 2px 6px rgba(58,50,40,.18)}
+  .badge b{display:block;font-size:17px;font-weight:700;letter-spacing:.20em;
+    text-indent:.20em;text-shadow:0 1px 2px rgba(86,12,14,.4)}
+  .badge span{display:block;font-size:17px;font-weight:700;letter-spacing:.20em;
+    text-indent:.20em;text-shadow:0 1px 2px rgba(86,12,14,.4);color:#fff}
   @media (max-width:560px){
-    .badge{top:8px;right:8px;font-size:13px;padding:7px 13px;gap:6px}}
+    .badge{top:8px;right:8px;padding:9px 15px}
+    .badge b{font-size:15px}
+    .badge span{font-size:15px}}
 </style>
 
 <div class="top">
@@ -135,7 +138,7 @@
 
   <div class="stage">
     <div class="frame" id="frame">
-      <span class="badge"><i></i><b>新技術</b><span>特許出願中</span></span>
+      <span class="badge"><b>新技術</b><span>特許出願中</span></span>
     </div>
     <div class="track" id="track"></div>
   </div>
